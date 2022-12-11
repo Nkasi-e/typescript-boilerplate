@@ -75,3 +75,51 @@ interface RobotArmy {
 let fightRobotArmy = (robots: RobotArmy) => {
     console.log('FIGHT')
 }
+
+// the interface type or keyword above represents the same fn below
+let fightRobotArmy2 = (robots: {count: number, type: string, magic: string}) => {
+    console.log('FIGHT')
+}
+
+// Type Assertion
+
+interface CatMan {
+    count: number,
+    type: string,
+    magic?: boolean
+}
+
+let dog = {} as CatMan
+
+dog.count
+
+// functions
+let fightRobotArmy3 = (robots: RobotArmy): void => {
+    console.log('FIGHT')
+}
+let fightRobotArmy4 = (robots: RobotArmy): string => {
+    console.log('FIGHT')
+    return 'lol'
+}
+
+
+// classes
+class Crowd {
+    sing: string = `left with the codes`
+    private count: number // the private keyword sets the var to private but by default it is set to public
+    constructor(sound: string, baloons: number) {
+        this.sing = sound
+        this.count = baloons
+    }
+
+    greet() {
+        return `Hello ${this.sing}, ${this.count} times!`
+    }
+}
+
+let lion = new Crowd('Woowww', 9)
+lion.greet()
+lion.sing
+
+// Union
+let confused: string | number | boolean = `Hello`
